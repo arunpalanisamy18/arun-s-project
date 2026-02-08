@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Astronomy Data Navigator - Cosmic Design System */
+
+@layer base {
+  :root {
+    /* Core cosmic palette - deep space dark theme */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Nebula purple primary */
+    --primary: 265 89% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Cosmic blue secondary */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Deep space muted */
+    --muted: 222 47% 14%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Stellar accent */
+    --accent: 185 100% 50%;
+    --accent-foreground: 222 47% 6%;
+
+    /* Alert colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 265 89% 65%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - observatory panel */
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 265 89% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 91% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 33% 15%;
+    --sidebar-ring: 265 89% 65%;
+
+    /* Custom astronomy tokens */
+    --star-glow: 45 100% 70%;
+    --nebula-pink: 330 85% 65%;
+    --galaxy-blue: 220 90% 55%;
+    --quasar-cyan: 185 100% 50%;
+    --supernova-orange: 25 95% 55%;
+    --dark-matter: 222 47% 3%;
+    
+    /* Gradients */
+    --gradient-nebula: linear-gradient(135deg, hsl(265 89% 65% / 0.8), hsl(217 91% 60% / 0.8));
+    --gradient-stellar: linear-gradient(135deg, hsl(185 100% 50% / 0.8), hsl(265 89% 65% / 0.8));
+    --gradient-cosmos: linear-gradient(180deg, hsl(222 47% 3%), hsl(222 47% 10%));
+    --gradient-aurora: linear-gradient(135deg, hsl(330 85% 65% / 0.6), hsl(265 89% 65% / 0.6), hsl(185 100% 50% / 0.6));
+  }
+
+  /* We default to dark mode for astronomy - optional light mode */
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 265 89% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 91% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 185 100% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 265 89% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  /* Glowing star effect */
+  .star-glow {
+    box-shadow: 
+      0 0 10px hsl(var(--star-glow) / 0.5),
+      0 0 20px hsl(var(--star-glow) / 0.3),
+      0 0 30px hsl(var(--star-glow) / 0.2);
+  }
+
+  /* Nebula card variant */
+  .card-nebula {
+    background: linear-gradient(135deg, 
+      hsl(var(--card)) 0%, 
+      hsl(265 89% 65% / 0.05) 50%,
+      hsl(var(--card)) 100%
+    );
+    border: 1px solid hsl(var(--border));
+    box-shadow: 
+      0 4px 20px hsl(265 89% 65% / 0.1),
+      inset 0 1px 0 hsl(0 0% 100% / 0.05);
+  }
+
+  /* Stellar gradient text */
+  .text-stellar {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--accent)) 50%,
+      hsl(var(--secondary)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Observatory panel */
+  .panel-observatory {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    box-shadow: 
+      0 8px 32px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(0 0% 100% / 0.03);
+  }
+
+  /* Data readout style */
+  .data-readout {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Cosmic button */
+  .btn-cosmic {
+    background: var(--gradient-nebula);
+    color: hsl(0 0% 100%);
+    border: none;
+    box-shadow: 
+      0 4px 15px hsl(265 89% 65% / 0.4),
+      inset 0 1px 0 hsl(0 0% 100% / 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .btn-cosmic:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 25px hsl(265 89% 65% / 0.5),
+      inset 0 1px 0 hsl(0 0% 100% / 0.3);
+  }
+
+  /* Pulse animation for active states */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Chart container with cosmic styling */
+  .chart-cosmic {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+}
+
+/* Keyframe animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Starfield background */
+.bg-starfield {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-starfield::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, hsl(var(--foreground) / 0.8), transparent),
+    radial-gradient(2px 2px at 40px 70px, hsl(var(--foreground) / 0.6), transparent),
+    radial-gradient(1px 1px at 90px 40px, hsl(var(--foreground) / 0.9), transparent),
+    radial-gradient(2px 2px at 130px 80px, hsl(var(--foreground) / 0.5), transparent),
+    radial-gradient(1px 1px at 160px 120px, hsl(var(--foreground) / 0.7), transparent);
+  background-repeat: repeat;
+  background-size: 200px 150px;
+  animation: twinkle 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Plotly chart overrides for dark theme */
+.js-plotly-plot .plotly .modebar {
+  background: transparent !important;
+}
+
+.js-plotly-plot .plotly .modebar-btn path {
+  fill: hsl(var(--muted-foreground)) !important;
+}
+
+.js-plotly-plot .plotly .modebar-btn:hover path {
+  fill: hsl(var(--primary)) !important;
+}
