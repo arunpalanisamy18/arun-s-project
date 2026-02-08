@@ -3,7 +3,7 @@
 Astronomy Data Navigator is an AI-powered astronomy research assistant designed for astronomers and researchers.  
 It provides a unified interface for catalog exploration, observation planning, photometry/light curve analysis, spectroscopy tools, transient detection, and survey dataset mining.
 
-This project is built for advanced astronomy workflows with a scalable design that supports large datasets and discovery pipelines.
+This project is designed with a scalable architecture in mind, supporting large datasets and future integrations with SIMBAD, NED, SDSS, and ScaleDown-style compression pipelines.
 
 ---
 
@@ -13,7 +13,7 @@ This project is built for advanced astronomy workflows with a scalable design th
 - Search objects by name (M31, NGC 1300, 3C 273, etc.)
 - Search using RA/DEC coordinates
 - Displays metadata such as:
-  - Object type (star/galaxy/quasar)
+  - Object type (star / galaxy / quasar)
   - magnitude
   - identifiers
   - survey references
@@ -63,7 +63,8 @@ This project is built for advanced astronomy workflows with a scalable design th
 ---
 
 ## 🧠 Unique Feature (Creative Addition)
-### **“Discovery Mode: 1B-Scale Query Simulator”**
+
+### ⭐ Discovery Mode: 1B-Scale Query Simulator
 This project includes a dataset accelerator layer that simulates billion-scale querying using:
 - compression-first storage
 - indexed query filtering
@@ -81,16 +82,53 @@ This demonstrates how ScaleDown-style pipelines can accelerate astronomy discove
 - shadcn/ui
 - Plotly charts
 
-**Backend Ready Design**
-- Modular agent-based architecture (tools-based AI system)
-- Easy integration with SIMBAD / NED / SDSS / NASA ADS
+**Design Approach**
+- Modular architecture
+- Tool-based “AI Agent” workflow
+- Clean UI for research productivity
 
 ---
 
 ## 📂 Project Structure
+
 ```bash
 src/
   components/
   pages/
   hooks/
 public/
+docs/
+⚙️ Installation & Run
+1) Install dependencies
+npm install
+2) Run development server
+npm run dev
+3) Build
+npm run build
+npm run preview
+🧪 Demo Inputs
+Light Curve Sample (CSV)
+time,flux
+0,1.02
+1,1.03
+2,0.98
+3,1.10
+4,1.05
+Spectroscopy Sample (CSV)
+wavelength,flux
+4000,0.22
+4100,0.25
+4200,0.31
+4300,0.29
+4400,0.35
+📌 Roadmap
+Real SIMBAD / NED / SDSS live integration
+
+Full ScaleDown API integration
+
+Full astrophysical object classifier model
+
+Hosted deployment + observatory partnership support
+
+👨‍💻 Author
+Built by Arun Palanisamy (A.A.)
